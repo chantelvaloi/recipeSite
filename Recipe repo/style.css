@@ -1,0 +1,405 @@
+/*================CUSTOM CSS===============*/
+:root{
+    --header-height: 3.5rem;
+    --first-color: hsl(0, 0%, 30%);
+    --first-color-alt: hsl(0, 0%, 17%);
+    /*--title-color: hsl(300, 8%, 95%);*/
+    --title-color: hsl(329, 75%, 56%);
+    --text-color: hsl(0, 0%, 0%);
+    /*--text-color-light: hsl(219, 4%, 55%);*/
+    --text-color: hsl(0, 0%, 17%);
+    --white-color: #fff;
+    /* --body-color: hsl(219, 4%, 4%); */
+    
+    --body-color: hsl(0, 0%, 100%);
+    /*--container-color: hsl(219, 4%, 7%);*/
+    --container-color: hsl(0, 0%, 93%);
+
+    /*========== My Custom Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Exo', sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+    :root {
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*================BASE CSS=================*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    /*margin: 0;*/
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*===============REUSABLE CSS CLASSES===============*/
+.container {
+    max-width: 1024px;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding: 4.5rem 0 2rem;
+}
+
+.section_title {
+    font-size: var(--h2-font-size);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.main {
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.main form{
+    width: 50%;
+    position: relative;
+    left: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+.button-div button{
+    width: 10%;
+    float: right;
+    margin: 5px;
+}
+
+.button-div {
+    text-align: center;
+    overflow: hidden;
+}
+
+/*===============HEADER & NAV BAR=================*/
+.header {
+    width: 100%;
+    /*background-color: #fff;*/
+    background-image: linear-gradient(to right, rgba(255, 0,0,0), rgba(239, 207, 227, 1));
+    position: fixed;
+    top: 0;
+    left: 50px;
+    z-index: var(--z-fixed);
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_logo, .nav_toggle {
+    color: var(--title-color);
+    display: inline-flex;
+}
+
+.nav_logo {
+    align-items: center;
+    column-gap: .5rem;
+    font-weight: var(--font-medium);
+    transition: .3s;
+}
+
+.nav_logo i{
+    font-size: 1.25rem;
+}
+
+.nav_logo:hover{
+    color: var(--first-color);
+}
+
+.nav_toggle {
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .nav_menu {
+        position: fixed;
+        background-color: hsl(0, 0%, 100%, .1);
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(96px);
+        transition: .3s;
+    }
+}
+
+.nav_menu {
+    right: 50px;
+}
+
+.nav_list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 3rem;
+    padding-top: 9rem;
+}
+
+.nav_link {
+    text-transform: uppercase;
+    color: var(--title-color);
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-medium);
+    transition: .3s;
+}
+
+.nav_link:hover{
+    color: var(--first-color);
+}
+
+.nav_close {
+    font-size: 2rem;
+    column-rule: var(--white-color);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.active_link {
+    color: var(--first-color);
+}
+
+/*================NEW RECIPE=================*/
+.recipe {
+    padding-top: 20px;
+    /*background-image: linear-gradient(to right, rgba(255, 0,0,0), rgba(239, 207, 227, 1));*/
+}
+
+.recipe-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/*===============RECIPE REPOSITORY=================*/
+.data_list {
+    padding-top: 1rem;
+}
+
+.recipe_content {
+    grid-template-columns: 300px;
+    row-gap: 1rem;
+    justify-content: center;
+}
+
+.recipe_card {
+    position: relative;
+    background-color: var(--container-color);
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.recipe_card .shape_smaller{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
+
+.recipe_title {
+    position: relative;
+    font-size: var(--h2-font-size);
+    margin-bottom: 0.25rem;
+}
+
+.recipe_card:hover {
+    transform: translateX(-.30m);
+}
+
+.recipe_price a{
+    color: var(--first-color);
+}
+
+/*
+
+/*===============RECIPE REPOSITORY GRID===============
+#data-list {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.data-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+*/
+
+/*===================FOOTER======================*/
+.footer{
+    position: relative;
+    overflow: hidden;
+}
+
+.footer_container {
+    row-gap: 2.5rem;
+    position: relative;
+}
+
+.footer__title{
+    font-size: var(--h3-font-size);
+    margin-bottom: 1.1rem;
+  
+}
+
+.footer__social{
+    display: flex;
+    column-gap: 1.5rem;
+  }
+
+  .footer__social-link{
+    font-size: 1.25rem;  
+}
+
+.footer_copy{
+    display: block;
+    margin-top: 4.5rem;
+    text-align: center;
+    font-size: var(--smaller-font-size);
+    /*color: rgb(199, 158, 47);*/
+}
+
+.footer__dev-link{
+   color: #F76400;
+}
+
+.footer__dev-link::before{   
+    text-shadow: 0 0 12px hsl(0, 0%, 100%);
+    transition: .3s;
+    animation: a 3s infinite; 
+}
+
+.footer span{
+    display: block;
+    width: 100%;
+    border: 1px solid hsl(322, 50%, 87%);
+    background-color: hsl(322, 50%, 87%);
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (min-width: 767px) {
+    .section {
+        padding: 4.5rem 0 2rem;
+    }
+
+    .nav_toggle, .nav_close {
+        display: none;
+    }
+
+    .nav_list {
+        flex-direction: row;
+        column-gap: 3rem;
+        padding-top: 0;
+    }
+
+    .nav_link {
+        font-size: var(--normal-font-size);
+        text-transform: initial;
+    }
+
+    .footer_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*=========FOR LARGE DEVICES===========*/
+@media screen and (min-width: 1024px){
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .data_list {
+        padding-bottom: 2.5rem;
+    }
+
+    #data-list {
+        display: grid;
+        grid-template-columns: repeat(3, 400px);
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer_copy {
+        margin-top: 8rem;
+        padding-bottom: 0.6rem;
+    }
+    /*
+    .recipe_content {
+        /*grid-template-columns: repeat(3, 2fr);*/
+        /*grid-template-columns: repeat(3, 150px);*/
+        /*grid-template-columns: auto auto auto;*/
+        /*gap: 3rem;
+    }
+    */
+}
+  
